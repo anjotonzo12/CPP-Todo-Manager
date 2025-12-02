@@ -1,6 +1,6 @@
 # 📝 C++ Todo Manager
 
-A command-base task manager built in C++ for learning data structures and STL containers. Features clean output and easy task management.
+A console-based task manager built in C++ for learning data structures and STL containers. Features clean output and easy task management.
 
 ## ✨ Features
 - ➕ Create tasks with description and status

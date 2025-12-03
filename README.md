@@ -27,3 +27,7 @@ cd CPP-Todo-Manager
 g++ main.cpp -o todo
 ./todo
 ```
+
+## 📄 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.

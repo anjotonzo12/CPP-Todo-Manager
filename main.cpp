@@ -14,7 +14,7 @@ struct Task {
 
 void showHeader() {
     cout << "\n====C++ TODO MANAGER====" << endl;
-    cout << "Commands: list, add, help, clear, exit" << endl;
+    cout << "Commands: list, add, complete, help, clear, exit" << endl;
 }
 
 void addTask(vector<Task>& tasks) {
@@ -27,7 +27,7 @@ void addTask(vector<Task>& tasks) {
     cout << "Task added!" << endl;
 }
 
-void makeCompleted(string& input, vector<Task>& tasks) {
+void completeTask(string& input, vector<Task>& tasks) {
     string str_num = input.substr(9);
     int task_num = stoi(str_num);
 
@@ -38,12 +38,25 @@ void makeCompleted(string& input, vector<Task>& tasks) {
 
     if (tasks[task_num - 1].is_completed == false) {
         tasks[task_num - 1].is_completed = true;
-        cout << "Task completed!" << endl;
+        cout << "Task " << task_num << " completed!" << endl;
         return;
     } else {
         cout << "Task is already completed!" << endl;
         return;
     }
+}
+
+void deleteTask(string& input, vector<Task>& tasks) {
+    string str_num = input.substr(7);
+    int task_num = stoi(str_num);
+
+    if (task_num < 1 || task_num > tasks.size()) {
+        cout << "Error: Task " << task_num << " doesn't exist!" << endl;
+        return;
+    }
+
+    tasks.erase(tasks.begin() + (task_num - 1));
+    cout << "Task " << task_num << " was successfully deleted!" << endl;
 }
 
 int main() {
@@ -73,11 +86,15 @@ int main() {
             system("clear");
             showHeader();
         } else if (input.rfind("complete ", 0) == 0) {
-            makeCompleted(input, tasks);
+            completeTask(input, tasks);
+        } else if (input.rfind("delete", 0) == 0) {
+            deleteTask(input, tasks);
         } else if (input == "help") {
             cout << "Available commands:\n";
             cout << "  list - Show all tasks\n";
             cout << "  add - Add a new task\n";
+            cout << "  complete [task number] - Complete task\n";
+            cout << "  delete [task number] - Delete task\n";
             cout << "  help - Show this help\n";
             cout << "  clear - Clear console\n";
             cout << "  exit - Quit program\n";

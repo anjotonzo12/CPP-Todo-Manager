@@ -14,7 +14,7 @@ struct Task {
 
 void showHeader() {
     cout << "\n╔══════════════════════════════════════╗\n";
-    cout << "║        📝 C++ TODO MANAGER           ║\n";
+    cout << "║         📝 C++ TODO MANAGER          ║\n";
     cout << "╚══════════════════════════════════════╝\n";
     cout << "Commands: list, add, complete, help, clear, exit" << endl;
 }
@@ -63,7 +63,6 @@ void deleteTask(string& input, vector<Task>& tasks) {
 
 int main() {
     vector<Task> tasks;
-
     string input;
     tasks.push_back(Task("Buy a bread", false));
     tasks.push_back(Task("Do homework", true));
@@ -80,6 +79,10 @@ int main() {
         if (input.empty()) {
             continue;
         } else if (input == "list") {
+            cout << "╔══════════════════════════════════════╗\n";
+            cout << "║            📋 TASKS LIST             ║\n";
+            cout << "╚══════════════════════════════════════╝";
+            cout << "\n📊 " << "Tasks left: " << tasks.size() << "\n" << endl;
             for (int i = 0; i < tasks.size(); i++) {
                 cout << "┌─[" << i+1 << "]─ " << tasks[i].description << "\n";
                 cout << "│   Status: " << (tasks[i].is_completed ? "[\033[32m✅ DONE\033[0m]" : "[\033[31m⏳ PENDING\033[0m]") << "\n";

@@ -13,7 +13,9 @@ struct Task {
 };
 
 void showHeader() {
-    cout << "\n====C++ TODO MANAGER====" << endl;
+    cout << "\n╔══════════════════════════════════════╗\n";
+    cout << "║        📝 C++ TODO MANAGER           ║\n";
+    cout << "╚══════════════════════════════════════╝\n";
     cout << "Commands: list, add, complete, help, clear, exit" << endl;
 }
 
@@ -70,15 +72,18 @@ int main() {
     showHeader();
 
     while (true) {
+        cout << "\033[1;36m";
         cout << "> ";
         getline(cin, input);
+        cout << "\033[0m";
 
         if (input.empty()) {
             continue;
         } else if (input == "list") {
             for (int i = 0; i < tasks.size(); i++) {
-                cout << i + 1 << ". " << tasks[i].description << " " <<
-                (tasks[i].is_completed ? "[\033[32mDONE\033[0m]" : "[\033[31mNOT DONE\033[0m]") << endl;
+                cout << "┌─[" << i+1 << "]─ " << tasks[i].description << "\n";
+                cout << "│   Status: " << (tasks[i].is_completed ? "[\033[32m✅ DONE\033[0m]" : "[\033[31m⏳ PENDING\033[0m]") << "\n";
+                cout << "└─────────────────────────────────────\n";
             }
         } else if (input == "add") {
             addTask(tasks);

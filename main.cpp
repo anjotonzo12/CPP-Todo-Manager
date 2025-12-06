@@ -25,8 +25,13 @@ void addTask(vector<Task>& tasks) {
     cout << "Enter task description: ";
     getline(cin, taskDesc);
 
-    tasks.push_back(Task(taskDesc, false));
-    cout << "Task added!" << endl;
+    if (!taskDesc.empty()) {
+        tasks.push_back(Task(taskDesc, false));
+        cout << "Task added!" << endl;
+        return;
+    }
+
+    cout << "Error: Task description is empty!" << endl;
 }
 
 void completeTask(string& input, vector<Task>& tasks) {
@@ -120,7 +125,7 @@ int main() {
             showHeader();
         } else if (input.rfind("complete ", 0) == 0) {
             completeTask(input, tasks);
-        } else if (input.rfind("delete", 0) == 0) {
+        } else if (input.rfind("delete ", 0) == 0) {
             deleteTask(input, tasks);
         } else if (input == "help") {
             cout << "Available commands:\n";

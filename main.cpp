@@ -30,21 +30,44 @@ void addTask(vector<Task>& tasks) {
 }
 
 void completeTask(string& input, vector<Task>& tasks) {
-    string str_num = input.substr(9);
-    int task_num = stoi(str_num);
+    try {
+        string str_num = input.substr(9);
+        int task_num = stoi(str_num);
 
-    if (task_num < 1 || task_num > tasks.size()) {
-        cout << "Error: Task " << task_num << " doesn't exist!" << endl;
-        return;
-    }    
+        if (task_num < 1 || task_num > tasks.size()) {
+            cout << "Error: Task " << task_num << " doesn't exist!" << endl;
+            return;
+        }
 
-    if (tasks[task_num - 1].is_completed == false) {
-        tasks[task_num - 1].is_completed = true;
-        cout << "Task " << task_num << " completed!" << endl;
-        return;
-    } else {
-        cout << "Task is already completed!" << endl;
-        return;
+        if (tasks[task_num - 1].is_completed == false) {
+            tasks[task_num - 1].is_completed = true;
+            cout << "Task " << task_num << " completed!" << endl;
+            return;
+        } else {
+            cout << "Task is already completed!" << endl;
+            return;
+        }
+    }
+    catch(...) {
+        cout << "Invalid task number!" << endl;
+    }
+}
+
+void deleteTask(string& input, vector<Task>& tasks) {
+    try {
+        string str_num = input.substr(7);
+        int task_num = stoi(str_num);
+
+        if (task_num < 1 || task_num > tasks.size()) {
+            cout << "Error: Task " << task_num << " doesn't exist!" << endl;
+            return;
+        }
+
+        tasks.erase(tasks.begin() + (task_num - 1));
+        cout << "Task " << task_num << " was successfully deleted!" << endl;
+    }
+    catch(...) {
+        cout << "Invalid task number!" << endl;
     }
 }
 
@@ -60,19 +83,6 @@ void showStats(vector<Task>& tasks) {
     cout << "\n📊 " << "Total: " << tasks.size() << " tasks (✅ "
     << count_completed << " done, " << "⏳ "
     << tasks.size() - count_completed << " pending)\n" << endl;
-}
-
-void deleteTask(string& input, vector<Task>& tasks) {
-    string str_num = input.substr(7);
-    int task_num = stoi(str_num);
-
-    if (task_num < 1 || task_num > tasks.size()) {
-        cout << "Error: Task " << task_num << " doesn't exist!" << endl;
-        return;
-    }
-
-    tasks.erase(tasks.begin() + (task_num - 1));
-    cout << "Task " << task_num << " was successfully deleted!" << endl;
 }
 
 int main() {

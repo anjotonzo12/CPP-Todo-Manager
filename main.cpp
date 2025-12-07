@@ -30,7 +30,7 @@ void showHeader() {
     cout << "\n╔══════════════════════════════════════╗\n";
     cout << "║         📝 C++ TODO MANAGER          ║\n";
     cout << "╚══════════════════════════════════════╝\n";
-    cout << "Commands: list, add, complete, help, clear, exit" << endl;
+    cout << "Commands: list, add, edit, complete, help, clear, exit" << endl;
 }
 
 void showTasksList(vector<Task>& tasks) {
@@ -56,6 +56,7 @@ void showHelp() {
     cout << "  add - Add a new task" << endl;
     cout << "  complete [task number] - Complete task" << endl;
     cout << "  delete [task number] - Delete task" << endl;
+    cout << "  edit [task number] - Edit task" << endl;
     cout << "  help - Show this help" << endl;
     cout << "  clear - Clear console" << endl;
     cout << "  exit - Quit program" << endl;
@@ -94,8 +95,7 @@ void completeTask(string& input, vector<Task>& tasks) {
             cout << "Task is already completed!" << endl;
             return;
         }
-    }
-    catch(...) {
+    } catch(...) {
         cout << "Invalid task number!" << endl;
     }
 }
@@ -112,8 +112,33 @@ void deleteTask(string& input, vector<Task>& tasks) {
 
         tasks.erase(tasks.begin() + (task_num - 1));
         cout << "Task " << task_num << " was successfully deleted!" << endl;
+    } catch(...) {
+        cout << "Invalid task number!" << endl;
     }
-    catch(...) {
+}
+
+void editTask(string& input, vector<Task>& tasks) {
+    try {
+        string str_num = input.substr(5);
+        int task_num = stoi(str_num);
+        string newTaskDesc;
+
+        if (task_num < 1 || task_num > tasks.size()) {
+            cout << "Error: Task " << task_num << " doesn't exist!" << endl;
+            return;
+        }
+
+        cout << "Enter new task description: ";
+        getline(cin, newTaskDesc);
+
+        if (!newTaskDesc.empty()) {
+            tasks[task_num - 1].description = newTaskDesc;
+            cout << "Task " << task_num << " was successfully edited!" << endl;
+            return;
+        }
+
+        cout << "Task description is empty!" << endl;
+    } catch(...) {
         cout << "Invalid task number!" << endl;
     }
 }
@@ -147,6 +172,8 @@ int main() {
             completeTask(input, tasks);
         } else if (input.rfind("delete ", 0) == 0) {
             deleteTask(input, tasks);
+        } else if (input.rfind("edit ", 0) == 0) {
+            editTask(input, tasks);
         } else if (input == "help") {
             showHelp();
         } else if (input == "exit") {

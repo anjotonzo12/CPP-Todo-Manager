@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <fstream>
 using namespace std;
 
 struct Task {
@@ -11,6 +12,14 @@ struct Task {
         is_completed = is_compltd;
     }
 };
+
+void writeFile(vector<Task>& tasks) {
+    ofstream writeFile("tasks.txt"); // write file (.txt)
+
+    for (int i = 0; i < tasks.size(); i++) {
+        writeFile << tasks[i].description << "|" << tasks[i].is_completed << endl;
+    }
+}
 
 void showStats(vector<Task>& tasks) {
     int count_completed = 0;
@@ -72,6 +81,7 @@ void addTask(vector<Task>& tasks) {
 
     if (!taskDesc.empty()) {
         tasks.push_back(Task(taskDesc, false));
+        writeFile(tasks);
         cout << "Task added!" << endl;
         return;
     }
@@ -91,6 +101,7 @@ void completeTask(string& input, vector<Task>& tasks) {
 
         if (tasks[task_num - 1].is_completed == false) {
             tasks[task_num - 1].is_completed = true;
+            writeFile(tasks);
             cout << "Task " << task_num << " was marked completed!" << endl;
             return;
         } else {
@@ -114,6 +125,7 @@ void unCompleteTask(string& input, vector<Task>& tasks) {
 
         if (tasks[task_num - 1].is_completed == true) {
             tasks[task_num - 1].is_completed = false;
+            writeFile(tasks);
             cout << "Task " << task_num << " was marked uncompleted!" << endl;
             return;
         } else {
@@ -136,6 +148,7 @@ void deleteTask(string& input, vector<Task>& tasks) {
         }
 
         tasks.erase(tasks.begin() + (task_num - 1));
+        writeFile(tasks);
         cout << "Task " << task_num << " was successfully deleted!" << endl;
     } catch(...) {
         cout << "Invalid task number!" << endl;
@@ -158,6 +171,7 @@ void editTask(string& input, vector<Task>& tasks) {
 
         if (!newTaskDesc.empty()) {
             tasks[task_num - 1].description = newTaskDesc;
+            writeFile(tasks);
             cout << "Task " << task_num << " was successfully edited!" << endl;
             return;
         }

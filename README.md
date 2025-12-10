@@ -4,7 +4,7 @@ A console-based task manager built in C++ for learning data structures and STL c
 
 ## 📸 Preview
 
-<img width="533" height="695" alt="image" src="https://github.com/user-attachments/assets/4c9e93e9-928a-4352-803f-c02e190897f3" />
+<img width="577" height="798" alt="image" src="https://github.com/user-attachments/assets/583ceaf5-7c5f-4f59-88d1-e578737902d0" />
 
 ## ✨ Features
 
@@ -44,23 +44,23 @@ g++ main.cpp -o todo
 ## 🎮 Usage Commands
 
 ```bash
-list                   # Show all tasks with statistics
-add                    # Add a new task
-complete [number]      # Mark task as completed
-uncomplete [number]    # Mark task as incomplete
-edit [number]          # Edit task description
-search [text]          # Search in task descriptions
-delete [number]        # Delete a task
-help                   # Show available commands
-clear                  # Clear console screen
-exit                   # Quit program
+list                           # Show all tasks with statistics
+add                            # Add a new task
+complete [number]              # Mark task as completed
+uncomplete [number]            # Mark task as incomplete
+edit [number]                  # Edit task description
+search [text]                  # Search in task descriptions
+delete [number]                # Delete a task
+help                           # Show available commands
+clear                          # Clear console screen
+exit                           # Quit program
 ```
 
 ## 📁 Data Persistence
 
-- Tasks are automatically saved to tasks.txt after every modification
+- Tasks are automatically saved to ```tasks.txt``` after every modification
 - Data loads automatically on program startup
-- Format: description|status (e.g., Buy milk|0)
+- Format: ```description|status|timestamp``` (e.g., Buy milk|0|1765367015)
 
 ## 📄 License
 

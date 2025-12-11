@@ -4,7 +4,7 @@ A console-based task manager built in C++ for learning data structures and STL c
 
 ## 📸 Preview
 
-<img width="577" height="798" alt="image" src="https://github.com/user-attachments/assets/583ceaf5-7c5f-4f59-88d1-e578737902d0" />
+<img width="623" height="703" alt="image" src="https://github.com/user-attachments/assets/3bc36c10-ad85-4f55-b684-b5379f0cf1ae" />
 
 ## ✨ Features
 

